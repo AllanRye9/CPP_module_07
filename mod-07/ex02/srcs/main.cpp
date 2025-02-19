@@ -48,8 +48,29 @@ int main(int, char**)
         numbers[i] = rand();
     }
     delete [] mirror;//
-    //test for an empty array created;
-    int * a = new int();
-    std::cout << *a << std::endl;
     return 0;
 }
+
+// int main()
+// {
+//     Array<int> values(10);
+//     Array<int>newArray(10); 
+
+//     // reinterpret_cast<int>(&newArray);
+//     values[0] = 42;
+//     values[1] = 43;
+//     values[2] = 44;
+
+//     newArray = values;
+//     values[3];
+//     newArray[3] = 50;
+//     newArray[4] = 100;
+//     std::cout << newArray[0] << std::endl;
+//     std::cout << newArray[1] << std::endl;
+//     std::cout << newArray[4] << std::endl;
+//     std::cout << newArray[3] << std::endl;
+
+//     int * a = new int();
+//     std::cout << *a << std::endl;
+//     return 0;
+// }

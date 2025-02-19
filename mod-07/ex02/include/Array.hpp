@@ -39,7 +39,7 @@ public:
         }
     }
 
-    Array& operator=(const Array& other)
+    Array& operator = (const Array& other)
     {
         if (this == &other)
             return *this;
