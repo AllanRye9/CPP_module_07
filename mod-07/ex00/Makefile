@@ -1,4 +1,4 @@
-NAME = temp
+NAME = ex00
 
 SRC = 	srcs/main.cpp
 

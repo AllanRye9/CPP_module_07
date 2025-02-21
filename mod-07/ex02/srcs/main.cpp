@@ -1,76 +1,48 @@
 #include "../include/Array.hpp"
 
 #define MAX_VAL 750
-int main(int, char**)
-{
-    Array<int> numbers(MAX_VAL);
-    int* mirror = new int[MAX_VAL];
-    srand(time(NULL));
-    for (int i = 0; i < MAX_VAL; i++)
-    {
-        const int value = rand();
-        numbers[i] = value;
-        mirror[i] = value;
-    }
-    //SCOPE
-    {
-        Array<int> tmp = numbers;
-        Array<int> test(tmp);
+
+int main() {
+    Array<int> intArray(5);
+    for (unsigned int i = 0; i < 5; i++) {
+        intArray[i] = i * 10;
     }
 
-    for (int i = 0; i < MAX_VAL; i++)
-    {
-        if (mirror[i] != numbers[i])
-        {
-            std::cerr << "didn't save the same value!!" << std::endl;
-            return 1;
-        }
+    std::cout << "intArray contents: ";
+    for (unsigned int i = 0; i < 5; i++) {
+        std::cout << intArray[i] << " ";
     }
-    try
-    {
-        numbers[-2] = 0;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-    try
-    {
-        numbers[MAX_VAL] = 0;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
+    std::cout << std::endl;
 
-    for (int i = 0; i < MAX_VAL; i++)
-    {
-        numbers[i] = rand();
+    Array<std::string> strArray(3);
+    strArray[0] = "Hello";
+    strArray[1] = "World";
+    strArray[2] = "Array";
+
+    std::cout << "strArray contents: ";
+    for (unsigned int i = 0; i < 3; i++) {
+        std::cout << strArray[i] << " ";
     }
-    delete [] mirror;//
+    std::cout << std::endl;
+
+    Array<int> copiedArray = intArray;
+    std::cout << "copiedArray contents (after copy): ";
+    for (unsigned int i = 0; i < 5; i++) {
+        std::cout << copiedArray[i] << " ";
+    }
+    std::cout << std::endl;
+
+    Array<int> assignedArray(3);
+    assignedArray = intArray;
+    std::cout << "assignedArray contents (after assignment): ";
+    for (unsigned int i = 0; i < 5; i++) {
+        std::cout << assignedArray[i] << " ";
+    }
+    std::cout << std::endl;
+    try {
+        std::cout << intArray[11] << std::endl;
+    } catch (const std::exception& e) {
+        std::cout << "Caught exception: " << e.what() << std::endl;
+    }
     return 0;
 }
-
-// int main()
-// {
-//     Array<int> values(10);
-//     Array<int>newArray(10); 
-
-//     // reinterpret_cast<int>(&newArray);
-//     values[0] = 42;
-//     values[1] = 43;
-//     values[2] = 44;
-
-//     newArray = values;
-//     values[3];
-//     newArray[3] = 50;
-//     newArray[4] = 100;
-//     std::cout << newArray[0] << std::endl;
-//     std::cout << newArray[1] << std::endl;
-//     std::cout << newArray[4] << std::endl;
-//     std::cout << newArray[3] << std::endl;
-
-//     int * a = new int();
-//     std::cout << *a << std::endl;
-//     return 0;
-// }

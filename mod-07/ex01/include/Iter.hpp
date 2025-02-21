@@ -2,11 +2,16 @@
 
 #include <iostream>
 #include <cstring>
+#include <climits>
 
 template <typename H>
 
-void iter( H *array, size_t j, void (*f)(H &c) )
+void iter( H *array, int j, void (*f)(H &c))
 {
-    for (size_t i = 0; i < j; i++)
+    if (j <= 0 || j > INT_MAX){
+        std::cerr << "Error: " << j << " Invalid Input " << std::endl; 
+        return ;
+    }
+    for (int i = 0; i < j; i++)
         f(array[i]);
 }

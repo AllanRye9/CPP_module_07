@@ -1,4 +1,4 @@
-NAME = iter
+NAME = ex01
 
 SRC = srcs/main.cpp
 		
